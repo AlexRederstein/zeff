@@ -1,0 +1,63 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #2b2838;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0px 10px 8px 0px rgba(34, 60, 80, 0.2);
+  height: 70px;
+  position: relative;
+
+  div.avatar-container {
+    display: flex;
+    align-items: inherit;
+    gap: 15px;
+    height: 100%;
+  }
+}
+
+button.avatar-button {
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    filter: #5b5869;
+  }
+}
+
+button.burger-button {
+  padding: 8px;
+
+  &:hover {
+    filter: brightness(150%);
+  }
+}
+
+div.context-menu {
+  position: absolute;
+  right: 10px;
+  top: calc(100% + 10px);
+  box-shadow: 3px 5px 8px 1px rgb(0 0 0 / 41%);
+  background-color: #5b5869;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+
+  ul {
+    list-style: none;
+
+    a {
+      /* color: black; */
+      font-size: large;
+      display: inline-block;
+      text-decoration: none;
+      padding: 5px;
+      width: 100%;
+    }
+  }
+}
