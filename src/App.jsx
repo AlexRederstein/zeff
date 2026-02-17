@@ -1,63 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Feed from "./components/Feed/Feed";
+import Article from "./components/Article/Article";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <Router>
       <Header />
-      <main>
-        <div className="article-item">
-          <h1>title</h1>
-          <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            dolorem ipsa atque possimus, eum itaque cum consequuntur, beatae
-            quidem repudiandae esse totam, et molestias exercitationem. Quis
-            autem et illum quibusdam!
-          </span>
-        </div>
-        <div className="article-item">
-          <h1>title</h1>
-          <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            dolorem ipsa atque possimus, eum itaque cum consequuntur, beatae
-            quidem repudiandae esse totam, et molestias exercitationem. Quis
-            autem et illum quibusdam!
-          </span>
-        </div>
-        <div className="article-item">
-          <h1>title</h1>
-          <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            dolorem ipsa atque possimus, eum itaque cum consequuntur, beatae
-            quidem repudiandae esse totam, et molestias exercitationem. Quis
-            autem et illum quibusdam!
-          </span>
-        </div>
-        <div className="article-item">
-          <h1>title</h1>
-          <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            dolorem ipsa atque possimus, eum itaque cum consequuntur, beatae
-            quidem repudiandae esse totam, et molestias exercitationem. Quis
-            autem et illum quibusdam!
-          </span>
-        </div>
-        <div className="article-item">
-          <h1>title</h1>
-          <span>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-            dolorem ipsa atque possimus, eum itaque cum consequuntur, beatae
-            quidem repudiandae esse totam, et molestias exercitationem. Quis
-            autem et illum quibusdam!
-          </span>
-        </div>
-      </main>
-    </>
+      <Routes>
+        <Route path="/" element={<Feed />} />
+        <Route path="/article/:articleId" element={<Article />} />
+      </Routes>
+    </Router>
   );
 }
 

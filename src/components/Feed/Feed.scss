@@ -1,0 +1,17 @@
+div.article-item {
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0px 10px 8px 0px rgba(34, 60, 80, 0.2);
+  background-color: #5b5869;
+  min-height: 200px;
+  cursor: pointer;
+
+  p.description {
+    margin: 15px 0;
+  }
+
+  &:hover {
+    background-color: #837e99;
+  }
+}
