@@ -5,10 +5,9 @@ header {
   width: 100%;
   padding: 10px;
   align-items: center;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
   box-shadow: 0px 10px 8px 0px rgba(34, 60, 80, 0.2);
   height: 70px;
-  position: relative;
 
   div.avatar-container {
     display: flex;
@@ -41,32 +40,14 @@ button.avatar-button {
 
 button.burger-button {
   padding: 8px;
+  height: 100%;
+  background-image: url("/public/files/burger.png");
+  background-repeat: no-repeat; /* Не повторять изображение */
+  background-position: center; /* Центрировать по горизонтали и вертикали */
+  background-size: cover; /* Масштабировать, чтобы покрыть контейнер */
+  width: 50px;
 
-  &:hover {
-    filter: brightness(150%);
-  }
-}
-
-div.context-menu {
-  position: absolute;
-  right: 15%;
-  top: calc(100% + 10px);
-  box-shadow: 3px 5px 8px 1px rgb(0 0 0 / 41%);
-  background-color: #5b5869;
-  color: black;
-  padding: 10px;
-  border-radius: 5px;
-
-  ul {
-    list-style: none;
-
-    a {
-      /* color: black; */
-      font-size: large;
-      display: inline-block;
-      text-decoration: none;
-      padding: 5px;
-      width: 100%;
-    }
-  }
+  // &:hover {
+  //   filter: brightness(150%);
+  // }
 }

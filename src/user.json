@@ -1,0 +1,12 @@
+{
+  "lastname": "Иванов",
+  "name": "Иван",
+  "surename": "Иванович",
+  "nickname": "Ivan",
+  "login": "ivan@mail.ru",
+  "date_of_birth": "1998-12-17",
+  "country": "Russia",
+  "role": "user",
+  "avatar": null,
+  "registration_date": "2026-02-18"
+}

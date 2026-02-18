@@ -1,0 +1,37 @@
+@use "../../variables";
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background-color: variables.$secondary-color;
+  padding: 2rem;
+  border-radius: 5px;
+
+  input,
+  button {
+    padding: 0.3rem;
+    border: 0;
+    border-radius: 2px;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  hr {
+    margin-bottom: 15px;
+    border: 1px solid white;
+  }
+}
+
+label.checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: baseline;
+  cursor: pointer;
+}

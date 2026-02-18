@@ -1,0 +1,26 @@
+.context-button {
+  position: relative;
+}
+
+div.context-menu {
+  position: absolute;
+  right: 15%;
+  top: calc(100% + 10px);
+  box-shadow: 3px 5px 8px 1px rgb(0 0 0 / 41%);
+  background-color: #5b5869;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+
+  ul {
+    list-style: none;
+
+    a {
+      font-size: large;
+      display: inline-block;
+      text-decoration: none;
+      padding: 5px;
+      width: 100%;
+    }
+  }
+}
