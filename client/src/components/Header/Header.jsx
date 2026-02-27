@@ -3,8 +3,18 @@ import logo from "/files/logo2.svg";
 import { Link } from "react-router-dom";
 import DropMenu from "../DropMenu/DropMenu";
 import "./Header.scss";
+import { useEffect } from "react";
 
 export default () => {
+  useEffect(() => {
+    fetch("/api")
+      .then((res) => {
+        return res.text();
+      })
+      .then((result) => console.log(result))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <header>
       <Link className="logo" to="/">

@@ -16,6 +16,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/article/:articleId" element={<Article />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registrarion"></Route>
           <Route path="*" element={"Не найдено"} />
         </Routes>
       </main>

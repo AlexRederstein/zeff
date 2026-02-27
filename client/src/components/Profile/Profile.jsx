@@ -1,6 +1,6 @@
 import avatar from "/files/user.png";
 import "./Profile.scss";
-import user from "../../user.json";
+// import user from "../../user.json";
 
 export default () => {
   console.log(user);

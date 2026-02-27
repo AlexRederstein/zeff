@@ -1,8 +1,5 @@
-import "./Auth.scss";
-
 export default () => {
   return (
-    // <div>
     <form className="login-form" action="">
       <span>Логин:</span>
       <input type="text" />
@@ -14,9 +11,8 @@ export default () => {
       </label>
       <button>Войти</button>
       <hr />
-      <a href="">Забыли пароль?</a>
-      <a href="">Регистрация</a>
+      <Link to="">Забыли пароль?</Link>
+      <Link to="/registrarion">Регистрация</Link>
     </form>
-    // </div>
   );
 };
