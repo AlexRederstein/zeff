@@ -23,9 +23,9 @@ export default () => {
       });
 
       const result = await res.json();
-
+      // console.log(res);
       if (res.ok) {
-        localStorage.setItem("user", JSON.stringify(result));
+        localStorage.setItem("user", JSON.stringify(result.user));
         console.log(result);
         navigate("/");
       } else {

@@ -1,3 +1,6 @@
+const TokenService = require("../services/tokenService");
+const UserDTO = require("../DTOs/user");
+
 class noDBService {
   async login(data) {
     const { username, password } = data;
@@ -17,9 +20,11 @@ class noDBService {
         registration_date: "2026-02-18",
       };
 
-      return user;
+      const userData = new UserDTO(user);
+      const tokens = TokenService.generateTokens({ ...userData });
+      return { ...tokens, user: userData };
     } else {
-      return { message: "Неправильные данные" };
+      throw new Error("Данные неверны");
     }
   }
 }

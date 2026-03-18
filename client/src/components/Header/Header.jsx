@@ -6,6 +6,17 @@ import "./Header.scss";
 import { useEffect } from "react";
 
 export default () => {
+  const getUser = () => {
+    if (localStorage.getItem("user")) {
+      return localStorage.getItem("user");
+    } else {
+      return {
+        name: "Гость",
+        login: false,
+      };
+    }
+  };
+
   useEffect(() => {
     fetch("/api")
       .then((res) => {
@@ -15,13 +26,16 @@ export default () => {
       .catch((err) => console.error(err));
   }, []);
 
+  const user = getUser();
+  console.log(user);
+
   return (
     <header>
       <Link className="logo" to="/">
         <img src={logo} alt="logo" />
       </Link>
       <div className="avatar-container">
-        <span>Иванов В.</span>
+        <span>{user.name}</span>
         <button className="avatar-button">
           <img src={user} alt="avatar" />
         </button>

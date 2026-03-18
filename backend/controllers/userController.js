@@ -1,5 +1,4 @@
-const noDBService = require("../models/noDBService");
-const jwt = require("jsonwebtoken");
+const noDBService = require("../services/noDBService");
 
 class userController {
   async login(req, res) {
@@ -12,10 +11,11 @@ class userController {
       // Обращение к базе данных
     } else {
       const user = await noDBService.login(data);
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
-        expiresIn: "1d",
+      res.cookie("refreshToken", user.refreshToken, {
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
       });
-      return res.json({ token, user: { name: user.name, login: user.login } });
+      req.json(user);
     }
   }
 }
