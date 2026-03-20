@@ -7,11 +7,14 @@ require("dotenv").config();
 const app = express();
 const router = require("./routes/routes");
 const port = process.env.SERVER_PORT || 3000;
+const errorMiddleware = require('./middleware/error-middleware')
 
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 app.use("", router);
+app.use(errorMiddleware);
+
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
