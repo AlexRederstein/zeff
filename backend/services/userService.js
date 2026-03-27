@@ -66,17 +66,17 @@ class userService {
             throw ApiError.UnathorizedError()
         }
         const userData = tokenService.validateRefreshToken(refreshToken)
-        const tokenFromBD = await tokenService.findToken(refreshToken)
-        if(!tokenFromBD || !userData) {
+        const tokenFromBD = tokenService.findToken(refreshToken)
+        if(!userData || !tokenFromBD) {
             throw ApiError.UnathorizedError()
-        } 
+        }
 
-        const user = await User.findByPk(userData.userid)
-        const userDTO = new UserDTO(user)
-        const tokens = tokenService.generateTokens({...userDTO})
-        await tokenService.safeToken(userDTO.userid, tokens.refreshToken)
+        const user = await User.findOne({where: {userid: userData.userid}})
+        const userDto = new UserDTO(user)
+        const tokens = tokenService.generateTokens({...userDto})
 
-        return {user: userDTO, ...tokens}
+        await tokenService.safeToken(userDto.userid, tokens.refreshToken)
+        return {...tokens, user: userDto}
     }
 }
 

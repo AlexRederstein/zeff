@@ -1,5 +1,6 @@
 const ApiError = require("../exceptions/api-error");
 const noDBService = require("../services/noDBService");
+const tokenService = require("../services/tokenService");
 const userService = require("../services/userService");
 const { validationResult } = require('express-validator')
 
@@ -60,10 +61,11 @@ class userController {
 
   async refresh(req, res, next) {
     try {
-      const {refreshToken} = req.cookies;
-      const userData = await userService.refresh(refreshToken, user.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+      const {refreshToken} = req.cookies
+      const userData = await userService.refresh(refreshToken)
+      res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+
       return res.json(userData)
-      res.cookie(refreshToken, )
     } catch (e) {
       next(e)
     }
